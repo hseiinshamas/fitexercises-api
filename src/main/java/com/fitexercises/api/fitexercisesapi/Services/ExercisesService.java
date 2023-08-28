@@ -4,6 +4,7 @@ package com.fitexercises.api.fitexercisesapi.Services;
 import com.fitexercises.api.fitexercisesapi.Dao.ExercisesDao;
 import com.fitexercises.api.fitexercisesapi.Models.Exercises;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,11 @@ public class ExercisesService {
     private ExercisesDao exercisesDao;
 
 
-    //  Return all the exercises in the db
+    // Apply the @Cacheable annotation to the methods in your service class that retrieve
+    // data from the database.
+    // The annotation indicates that the method's results should be cached.
+
+    @Cacheable("exercisesCache")
     public List<Exercises> getAllExercises() {
         return exercisesDao.findAll();
     }
@@ -50,6 +55,7 @@ public class ExercisesService {
     }
 
 
+    @Cacheable("exercisesCache")
     public List<Exercises> filterExercises(String criteria, String value) {
         return switch (criteria.toLowerCase()) {
             case "name" -> exercisesDao.findByNameIgnoreCaseContaining(value);
