@@ -58,4 +58,11 @@ public class ExercisesController {
         List<Exercises> exercises = exercisesService.getExerciseByEquipment(equipment);
         return new ResponseEntity<>(exercises, HttpStatus.OK);
     }
+
+    // filters By Criteria.
+    @GetMapping("/filter")
+    public ResponseEntity<List<Exercises>> filterExercises(@RequestParam String criteria, @RequestParam String value) {
+        List<Exercises> filteredExercises = exercisesService.filterExercises(criteria, value);
+        return ResponseEntity.ok(filteredExercises);
+    }
 }

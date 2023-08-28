@@ -28,4 +28,18 @@ public interface ExercisesDao extends MongoRepository<Exercises, ObjectId> {
 
     @Query("{'equipment': {$regex: ?0, $options: 'i'}}")
     List<Exercises> findByEquipment(String equipment);
+
+
+    List<Exercises> findByNameIgnoreCaseContaining(String name);
+
+    List<Exercises> findByCategoryIgnoreCaseContaining(String category);
+
+    List<Exercises> findByLevelIgnoreCaseContaining(String level);
+
+    List<Exercises> findByForceIgnoreCaseContaining(String force);
+
+    List<Exercises> findByMechanicIgnoreCaseContaining(String mechanic);
+
+    List<Exercises> findByEquipmentIgnoreCaseContaining(String equipment);
+
 }

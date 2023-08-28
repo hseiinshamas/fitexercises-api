@@ -49,4 +49,17 @@ public class ExercisesService {
 
     }
 
+
+    public List<Exercises> filterExercises(String criteria, String value) {
+        return switch (criteria.toLowerCase()) {
+            case "name" -> exercisesDao.findByNameIgnoreCaseContaining(value);
+            case "level" -> exercisesDao.findByLevelIgnoreCaseContaining(value);
+            case "force" -> exercisesDao.findByForceIgnoreCaseContaining(value);
+            case "mechanic" -> exercisesDao.findByMechanicIgnoreCaseContaining(value);
+            case "equipment" -> exercisesDao.findByEquipmentIgnoreCaseContaining(value);
+            case "category" -> exercisesDao.findByCategoryIgnoreCaseContaining(value);
+            default -> throw new IllegalArgumentException("Invalid criteria: " + criteria);
+        };
+    }
+
 }
