@@ -25,5 +25,6 @@ public class Exercises {
     private List<String> primaryMuscles;
     private List<String> secondaryMuscles;
     private List<String> instructions;
+    private List<String> images;
 
 }

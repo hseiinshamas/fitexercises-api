@@ -1,8 +1,8 @@
 package com.fitexercises.api.fitexercisesapi.Services;
 
 
-import com.fitexercises.api.fitexercisesapi.Dao.ExercisesDao;
 import com.fitexercises.api.fitexercisesapi.Models.Exercises;
+import com.fitexercises.api.fitexercisesapi.repository.ExercisesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.util.List;
 public class ExercisesService {
 
     @Autowired
-    private ExercisesDao exercisesDao;
+    private ExercisesRepository exercisesDao;
 
 
     // Apply the @Cacheable annotation to the methods in your service class that retrieve

@@ -17,10 +17,13 @@ public class ExercisesController {
     @Autowired
     private ExercisesService exercisesService;
 
+
     @GetMapping // Return all the Exercises.
     public ResponseEntity<List<Exercises>> getAllExercises() {
+
         return new ResponseEntity<List<Exercises>>(exercisesService.getAllExercises(), HttpStatus.OK);
     }
+
 
     @GetMapping("/searchByName")
     public ResponseEntity<List<Exercises>> getExerciseByName(@RequestParam String name) {

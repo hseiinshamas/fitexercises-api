@@ -1,4 +1,4 @@
-package com.fitexercises.api.fitexercisesapi.Dao;
+package com.fitexercises.api.fitexercisesapi.repository;
 
 import com.fitexercises.api.fitexercisesapi.Models.Exercises;
 import org.bson.types.ObjectId;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ExercisesDao extends MongoRepository<Exercises, ObjectId> {
+public interface ExercisesRepository extends MongoRepository<Exercises, ObjectId> {
 
     @Query("{'name': {$regex: ?0, $options: 'i'}}")
     List<Exercises> findByPartialNameIgnoreCase(String name);

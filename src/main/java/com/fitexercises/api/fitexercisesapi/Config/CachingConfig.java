@@ -1,7 +1,6 @@
 package com.fitexercises.api.fitexercisesapi.Config;
 
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +21,7 @@ public class CachingConfig {
      */
 
     @Bean
-    public CacheManager cacheManager (){
+    public CacheManager cacheManager() {
         return new ConcurrentMapCacheManager("exercisesCache"); // Cache Name.
     }
 
